@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name='Animals simple App in Kotlin'

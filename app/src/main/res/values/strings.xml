@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Animals simple App in Kotlin</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="error_list">An error occurred while loading data</string>
+</resources>
