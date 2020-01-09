@@ -11,14 +11,13 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.app.blitz.animalssimpleappinkotlin.R
-import com.app.blitz.animalssimpleappinkotlin.model.DogBreedModelData
 import com.app.blitz.animalssimpleappinkotlin.viewmodel.ListViewModel
 import kotlinx.android.synthetic.main.fragment_list.*
 
 class ListFragment : Fragment() {
 
     private lateinit var viewModel: ListViewModel
-    private val dogsListAdapater = DogsListAdapater(arrayListOf())
+    private val dogsListAdapater = DogsListAdapter(arrayListOf())
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

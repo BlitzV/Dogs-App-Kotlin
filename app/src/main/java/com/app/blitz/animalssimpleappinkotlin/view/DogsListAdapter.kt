@@ -3,13 +3,13 @@ package com.app.blitz.animalssimpleappinkotlin.view
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.app.blitz.animalssimpleappinkotlin.R
 import com.app.blitz.animalssimpleappinkotlin.model.DogBreedModelData
-import kotlinx.android.synthetic.main.fragment_detail.view.*
 import kotlinx.android.synthetic.main.row_item_list.view.*
 
-class DogsListAdapater(val doglist: ArrayList<DogBreedModelData>): RecyclerView.Adapter<DogsListAdapater.DogViewHolder>() {
+class DogsListAdapter(val doglist: ArrayList<DogBreedModelData>): RecyclerView.Adapter<DogsListAdapter.DogViewHolder>() {
 
     fun updateDogList(newDogsList: List<DogBreedModelData>) {
         doglist.clear()
@@ -30,6 +30,9 @@ class DogsListAdapater(val doglist: ArrayList<DogBreedModelData>): RecyclerView.
     override fun onBindViewHolder(holder: DogViewHolder, position: Int) {
         holder.view.name.text = doglist[position].dogBreed
         holder.view.text.text = doglist[position].lifeSpan
+        holder.view.setOnClickListener {
+            Navigation.findNavController(it).navigate(ListFragmentDirections.actionDetailFragment())
+        }
     }
 
     class DogViewHolder(var view: View) : RecyclerView.ViewHolder(view){
