@@ -6,6 +6,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:layout_marginBottom="8dp"
         app:cardElevation="8dp"
         app:cardCornerRadius="5dp">
 
@@ -17,10 +18,10 @@
                 android:id="@+id/imageView"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_margin="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                android:src="@mipmap/ic_dog_icon_round"
                 tools:src="@drawable/ic_launcher_background"/>
 
             <LinearLayout
