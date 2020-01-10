@@ -38,6 +38,15 @@ class ListFragment : Fragment() {
             adapter = dogsListAdapater
         }
 
+        refresh_layout.setOnRefreshListener {
+            recyclerView.visibility = View.GONE
+            list_error.visibility = View.GONE
+            loading_view.visibility = View.VISIBLE
+
+            viewModel.refresh()
+            refresh_layout.isRefreshing = false
+        }
+
         observeViewModel()
 
     }
