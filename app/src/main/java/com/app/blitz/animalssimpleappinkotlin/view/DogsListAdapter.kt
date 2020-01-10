@@ -7,6 +7,8 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.app.blitz.animalssimpleappinkotlin.R
 import com.app.blitz.animalssimpleappinkotlin.model.DogBreedModelData
+import com.app.blitz.animalssimpleappinkotlin.util.getProgressDrawable
+import com.app.blitz.animalssimpleappinkotlin.util.loadImage
 import kotlinx.android.synthetic.main.row_item_list.view.*
 
 class DogsListAdapter(val doglist: ArrayList<DogBreedModelData>): RecyclerView.Adapter<DogsListAdapter.DogViewHolder>() {
@@ -33,6 +35,8 @@ class DogsListAdapter(val doglist: ArrayList<DogBreedModelData>): RecyclerView.A
         holder.view.setOnClickListener {
             Navigation.findNavController(it).navigate(ListFragmentDirections.actionDetailFragment())
         }
+
+        holder.view.imageView.loadImage(doglist[position].imageUrl, getProgressDrawable(holder.view.imageView.context))
     }
 
     class DogViewHolder(var view: View) : RecyclerView.ViewHolder(view){
