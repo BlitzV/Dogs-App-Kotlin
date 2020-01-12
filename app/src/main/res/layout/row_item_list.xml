@@ -3,6 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <data>
+        <variable
+            name="dog"
+            type="com.app.blitz.animalssimpleappinkotlin.model.DogBreedModelData" />
+        <variable
+            name="listener"
+            type="com.app.blitz.animalssimpleappinkotlin.view.DogClickLister" />
+    </data>
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -12,13 +21,23 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
+            android:onClick="@{listener::onDogClicked}"
             android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/dogID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:text="@{String.valueOf(dog.uuid)}"
+                tools:ignore="MissingConstraints" />
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginStart="8dp"
+                android:imageUrl="@{dog.imageUrl}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -40,14 +59,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/title"
-                    tools:text="Animal name" />
+                    android:text="@{dog.dogBreed}" />
 
                 <TextView
                     android:id="@+id/text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/text"
-                    tools:text="Description" />
+                    android:text="@{dog.lifeSpan}" />
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
