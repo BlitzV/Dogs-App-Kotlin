@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/listFragment"
         android:name="com.app.blitz.animalssimpleappinkotlin.view.ListFragment"
-        android:label="ListFragment" >
+        android:label="Dogs" >
         <action
             android:id="@+id/actionDetailFragment"
             app:destination="@id/detailFragment"
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.app.blitz.animalssimpleappinkotlin.view.DetailFragment"
-        android:label="DetailFragment" >
+        android:label="Dog details" >
         <action
             android:id="@+id/actionListFragment"
             app:destination="@id/listFragment"
