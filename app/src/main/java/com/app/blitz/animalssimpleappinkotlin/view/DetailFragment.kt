@@ -10,6 +10,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 
 import com.app.blitz.animalssimpleappinkotlin.R
+import com.app.blitz.animalssimpleappinkotlin.util.getProgressDrawable
+import com.app.blitz.animalssimpleappinkotlin.util.loadImage
 import com.app.blitz.animalssimpleappinkotlin.viewmodel.detailViewModel
 import kotlinx.android.synthetic.main.fragment_detail.*
 
@@ -31,12 +33,12 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProviders.of(this).get(detailViewModel::class.java)
-        viewModel.fetch()
-
         arguments?.let {
             dogUuid = DetailFragmentArgs.fromBundle(it).dogUuid
         }
+
+        viewModel = ViewModelProviders.of(this).get(detailViewModel::class.java)
+        viewModel.fetch(dogUuid)
 
         observeViewModel()
     }
@@ -48,6 +50,7 @@ class DetailFragment : Fragment() {
                 dog_purpose.text = dog.breedFor
                 dogTemperament.text = dog.temperament
                 dog_lifespan.text = dog.lifeSpan
+                context?.let { imageAnimal.loadImage(dog.imageUrl, getProgressDrawable(it)) }
             }
         })
     }
