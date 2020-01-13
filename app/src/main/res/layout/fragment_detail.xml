@@ -7,11 +7,15 @@
         <variable
             name="dog"
             type="com.app.blitz.animalssimpleappinkotlin.model.DogBreedModelData" />
+        <variable
+            name="palette"
+            type="com.app.blitz.animalssimpleappinkotlin.model.DogPalette" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@{palette.color}"
         tools:context=".view.DetailFragment">
 
         <ImageView
