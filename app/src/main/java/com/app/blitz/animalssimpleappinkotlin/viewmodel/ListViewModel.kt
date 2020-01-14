@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import com.app.blitz.animalssimpleappinkotlin.model.DogBreedModelData
 import com.app.blitz.animalssimpleappinkotlin.model.DogsApiService
 import com.app.blitz.animalssimpleappinkotlin.model.DogsDatabase
+import com.app.blitz.animalssimpleappinkotlin.util.NotificationsHelper
 import com.app.blitz.animalssimpleappinkotlin.util.SharedPreferencesHelper
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -59,6 +60,7 @@ class ListViewModel(application: Application): BaseViewModel(application) {
                     //dogsRetrive(doglist)
                     storeDogsLocally(doglist)
                     Toast.makeText(getApplication(), "Dogs retrived from endpoint", Toast.LENGTH_SHORT).show()
+                    NotificationsHelper(getApplication()).createNotificaion()
 
                 }
 
