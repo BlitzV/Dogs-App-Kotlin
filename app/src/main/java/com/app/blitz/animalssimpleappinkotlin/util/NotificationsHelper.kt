@@ -42,7 +42,7 @@ class NotificationsHelper(val context: Context) {
     }
 
     private fun createNotificationChannel(){
-        if(Build.VERSION.SDK_INT == Build.VERSION_CODES.O) {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val name = CHANNEL_ID
             val descriptionText = "Channel description"
             val importance = NotificationManager.IMPORTANCE_DEFAULT
